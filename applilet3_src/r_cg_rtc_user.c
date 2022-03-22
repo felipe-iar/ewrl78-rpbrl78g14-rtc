@@ -23,7 +23,7 @@
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
 * Description  : This file implements device driver for RTC module.
-* Creation Date: 2022-03-15
+* Creation Date: 2022-03-21
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -41,6 +41,10 @@ Global variables and functions
 ***********************************************************************************************************************/
 /* Start user code for global. Do not edit comment generated here */
 extern rtc_alarm_value_t myalarm;
+extern unsigned int seconds_it;
+extern unsigned int minutes_it;
+extern unsigned int seconds_rtc;
+extern unsigned int minutes_rtc;
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -74,6 +78,10 @@ __interrupt static void r_rtc_interrupt(void)
 static void r_rtc_callback_constperiod(void)
 {
     /* Start user code. Do not edit comment generated here */
+    if (++seconds_rtc % 59u == 0u) {
+        minutes_rtc++;
+        seconds_rtc = 0;
+    }
     /* End user code. Do not edit comment generated here */
 }
 
@@ -86,11 +94,11 @@ static void r_rtc_callback_constperiod(void)
 static void r_rtc_callback_alarm(void)
 {
     /* Start user code. Do not edit comment generated here */
-    printf("Alarm generated!\n");
+    //printf("RTC..%02u:%02u, IT..%02u:%02u\n", minutes_rtc, seconds_rtc, minutes_it, seconds_it);
+    __no_operation();
     R_RTC_Get_AlarmValue(&myalarm);
     myalarm.alarmwm++;
     R_RTC_Set_AlarmValue(myalarm);
-    R_RTC_Set_AlarmOn();
     /* End user code. Do not edit comment generated here */
 }
 
