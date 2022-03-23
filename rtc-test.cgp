@@ -283,7 +283,7 @@
           <P74 Chip="RL78G14_48pin,RL78G14_49pin,RL78G14_52pin,RL78G14_64pin" Name="P74/KR4/INTP8/SI01/SDA01" Nch="true" AltFunc="" Point="I/O" />
           <P75 Chip="RL78G14_48pin,RL78G14_49pin,RL78G14_52pin,RL78G14_64pin" Name="P75/KR5/INTP9/_SCK01/SCL01" AltFunc="" Point="I/O" />
           <P76 Chip="RL78G14_52pin,RL78G14_64pin,RL78G14_80pin,RL78G14_100pin,RL78G14_128pin" Name="P76/KR6/INTP10" AltFunc="" Point="I/O" />
-          <P77 Chip="RL78G14_52pin,RL78G14_64pin,RL78G14_80pin,RL78G14_100pin,RL78G14_128pin" Name="P77/KR7/INTP11" AltFunc="" Point="I/O" />
+          <P77 Chip="RL78G14_52pin,RL78G14_64pin,RL78G14_80pin,RL78G14_100pin,RL78G14_128pin" Name="P77/KR7/INTP11" AltFunc="P77" Point="I/O" />
         </Port7>
         <Port12>
           <P120 Chip="R5F104AA,R5F104AC,R5F104AD,R5F104AE,R5F104BA,R5F104BC,R5F104BD,R5F104BE,R5F104CA,R5F104CC,R5F104CD,R5F104CE,R5F104EA,R5F104EC,R5F104ED,R5F104EE,R5F104FA,R5F104FC,R5F104FD,R5F104FE,R5F104GA,R5F104GC,R5F104GD,R5F104GE,R5F104JC,R5F104JD,R5F104JE,R5F104LC,R5F104LD,R5F104LE" Name="P120/ANI19" DIN="true" Pullup="true" AltFunc="" Point="I/O" />
@@ -687,15 +687,15 @@
         <r_cg_pfdl.h UserName="r_cg_pfdl.h" LibName="_pfdl.h" InUse="0" />
       </CGC>
       <PORT>
-        <r_cg_port.c UserName="r_cg_port.c" LibName=".c">
+        <r_cg_port.c UserName="r_cg_port.c" LibName=".c" InUse="1">
           <Type R_PORT_Create="void R_PORT_Create(void)" />
-          <R_PORT_Create UserName="R_PORT_Create" LibName="R_PORT_Create" Init="1" InitMode="" />
+          <R_PORT_Create UserName="R_PORT_Create" LibName="R_PORT_Create" Init="1" InitMode="" InUse="1" />
         </r_cg_port.c>
-        <r_cg_port_user.c UserName="r_cg_port_user.c" LibName="_user.c">
+        <r_cg_port_user.c UserName="r_cg_port_user.c" LibName="_user.c" InUse="1">
           <Type R_PORT_Create_UserInit="void R_PORT_Create_UserInit(void)" />
-          <R_PORT_Create_UserInit UserName="R_PORT_Create_UserInit" LibName="R_PORT_Create_UserInit" />
+          <R_PORT_Create_UserInit UserName="R_PORT_Create_UserInit" LibName="R_PORT_Create_UserInit" InUse="0" />
         </r_cg_port_user.c>
-        <r_cg_port.h UserName="r_cg_port.h" LibName=".h" />
+        <r_cg_port.h UserName="r_cg_port.h" LibName=".h" InUse="1" />
       </PORT>
       <INTC>
         <r_cg_intc.c UserName="r_cg_intc.c" LibName=".c" InUse="">
@@ -1393,27 +1393,27 @@
     </FUNC>
     <TAG>
       <GlobleUserTag>
-        <cg_security4 Name="cg_security4" Value="00" />
         <cg_security9 Name="cg_security9" Value="00" />
         <cg_security7 Name="cg_security7" Value="00" />
         <pior1_value Name="pior1_value" Value="00" />
         <cg_security5 Name="cg_security5" Value="00" />
         <cg_crc_area Name="cg_crc_area" Value="00" />
+        <ocdstart Name="ocdstart" Value="0FE00" />
         <cg_security3 Name="cg_security3" Value="00" />
         <cg_security0 Name="cg_security0" Value="00" />
         <cg_security1 Name="cg_security1" Value="00" />
+        <cg_ocd_ram_size Name="cg_ocd_ram_size" Value="512" />
         <clock_option Name="clock_option" Value="F8" />
-        <lvi_option Name="lvi_option" Value="7F" />
         <pior_value Name="pior_value" Value="00" />
         <cg_option Name="cg_option" Value="85" />
         <cg_security8 Name="cg_security8" Value="00" />
         <cg_security6 Name="cg_security6" Value="00" />
-        <ocdstart Name="ocdstart" Value="0FE00" />
+        <cg_security4 Name="cg_security4" Value="00" />
         <cg_pms_value Name="cg_pms_value" Value="00" />
         <cg_onchip Name="cg_onchip" Value="" />
         <cg_security2 Name="cg_security2" Value="00" />
         <cg_iawctl_value Name="cg_iawctl_value" Value="00" />
-        <cg_ocd_ram_size Name="cg_ocd_ram_size" Value="512" />
+        <lvi_option Name="lvi_option" Value="7F" />
         <wdt_option Name="wdt_option" Value="FF" />
         <rrm Name="rrm" Value="0FE00" />
       </GlobleUserTag>
@@ -1423,8 +1423,8 @@
     <CGC HelpID="CGC" Prepared="true" SetFlag="True" NeedRefresh="False">
       <CGC SetFlag="True" MacroName="cgc" />
     </CGC>
-    <PORT Prepared="true" HelpID="port" SetFlag="" NeedRefresh="False">
-      <PORT SetFlag="" MacroName="PORT" />
+    <PORT Prepared="true" HelpID="port" SetFlag="True" NeedRefresh="False">
+      <PORT SetFlag="True" MacroName="PORT" />
     </PORT>
     <INTC SetFlag="" HelpID="int" NeedRefresh="False">
       <INTP Accelerate="No" MacroName="INTP" />
@@ -1607,5 +1607,435 @@
     <TMRG0>
       <setting name="Function" value="Unused" />
     </TMRG0>
+    <PORT>
+      <PortP0>
+        <P00>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P00>
+        <P01>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P01>
+        <P02>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P02>
+        <P03>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P03>
+        <P04>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P04>
+        <P05>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P05>
+        <P06>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P06>
+      </PortP0>
+      <PortP1>
+        <P10>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P10>
+        <P11>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P11>
+        <P12>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P12>
+        <P13>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P13>
+        <P14>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P14>
+        <P15>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P15>
+        <P16>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P16>
+        <P17>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P17>
+      </PortP1>
+      <PortP2>
+        <P20>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P20>
+        <P21>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P21>
+        <P22>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P22>
+        <P23>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P23>
+        <P24>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P24>
+        <P25>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P25>
+        <P26>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P26>
+        <P27>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P27>
+      </PortP2>
+      <PortP3>
+        <P30>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P30>
+        <P31>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P31>
+      </PortP3>
+      <PortP4>
+        <P40>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="used" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P40>
+        <P41>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P41>
+        <P42>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P42>
+        <P43>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P43>
+      </PortP4>
+      <PortP5>
+        <P50>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P50>
+        <P51>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P51>
+        <P52>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P52>
+        <P53>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P53>
+        <P54>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P54>
+        <P55>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P55>
+      </PortP5>
+      <PortP6>
+        <P60>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P60>
+        <P61>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P61>
+        <P62>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P62>
+        <P63>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P63>
+      </PortP6>
+      <PortP7>
+        <P70>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P70>
+        <P71>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P71>
+        <P72>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P72>
+        <P73>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P73>
+        <P74>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P74>
+        <P75>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P75>
+        <P76>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P76>
+        <P77>
+          <setting name="Operation" value="output" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="1" />
+        </P77>
+      </PortP7>
+      <PortP12>
+        <P120>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P120>
+        <P121>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P121>
+        <P122>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P122>
+        <P123>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P123>
+        <P124>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P124>
+      </PortP12>
+      <PortP13>
+        <P130>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P130>
+        <P137>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P137>
+      </PortP13>
+      <PortP14>
+        <P140>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P140>
+        <P141>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P141>
+        <P146>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P146>
+        <P147>
+          <setting name="Operation" value="unused" />
+          <setting name="Pull_up" value="unused" />
+          <setting name="TTL_buffer" value="unused" />
+          <setting name="N-ch_open-drain" value="unused" />
+          <setting name="Output_value" value="0" />
+        </P147>
+      </PortP14>
+    </PORT>
   </SETTING>
 </RL78G14>

@@ -18,10 +18,11 @@
 /* This C-SPY macro module installs a breakpoint for logging */
 
 __var _breakID;
+__var _fileHandle;
 
-checkBreakpoint() {
+cspyCheckBreakpoint() {
   if (_breakID == 0) {
-      __message "CSPY-print: required breakpoint set failed.\n";
+      __message "CSPY-print: required breakpoint set FAILED.\n";
   }
   else {
       __message "CSPY-print: required breakpoint set OK.\n";
@@ -29,11 +30,31 @@ checkBreakpoint() {
 }
 
 cspyPrintMacro() {
-__message "CSPY-print: ",__toString(cspyPrintBuffer,128);
+    __message "CSPY-print: ", __toString(buffer,sizeof(buffer));
+    __fmessage _fileHandle, "CSPY-print: ", __toString(buffer,sizeof(buffer)), "\n";
+}
+
+execUserReset() {
+  __message "execUserReset() called.\n";
+  if ( _fileHandle )
+  {
+    __resetFile( _fileHandle );
+  }
 }
 
 execUserSetup() {
-    // Set a breakpoint at label "main" and call a function at breakpoint hit
-    _breakID = __setCodeBreak("cspyPrint", 0, "cspyPrintMacro()", "TRUE", "");
-    checkBreakpoint();
+    _fileHandle = __openFile("$PROJ_DIR$/cspy-print.log", "w+");
+    if ( !_fileHandle )
+    {
+        __message "CSPY-print: could not open file.\n";
+    }
+    // Set a breakpoint at label cspyPrintInvoke() and call the cspyPrintMacro() at breakpoint hit
+    _breakID = __setCodeBreak("cspyPrintInvoke", 0, "cspyPrintMacro()", "TRUE", "");
+    cspyCheckBreakpoint();
+}
+
+execUserExit() {
+    __clearBreak( _breakID );
+    __closeFile( _fileHandle );
+    __message "execUserExit(): called.";
 }

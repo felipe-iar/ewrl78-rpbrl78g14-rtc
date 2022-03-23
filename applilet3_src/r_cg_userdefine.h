@@ -23,7 +23,7 @@
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
 * Description  : This file includes user definition.
-* Creation Date: 2022-03-21
+* Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
 #ifndef _USER_DEF_H
@@ -34,6 +34,5 @@ User definitions
 ***********************************************************************************************************************/
 
 /* Start user code for function. Do not edit comment generated here */
-extern char cspyPrintBuffer[128];
 /* End user code. Do not edit comment generated here */
 #endif

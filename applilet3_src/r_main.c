@@ -23,7 +23,7 @@
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
 * Description  : This file implements main function.
-* Creation Date: 2022-03-21
+* Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -31,6 +31,7 @@ Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
 #include "r_cg_cgc.h"
+#include "r_cg_port.h"
 #include "r_cg_timer.h"
 #include "r_cg_wdt.h"
 #include "r_cg_rtc.h"
@@ -77,7 +78,6 @@ void main(void)
 {
     R_MAIN_UserInit();
     /* Start user code. Do not edit comment generated here */
-    R_RTC_Set_ConstPeriodInterruptOn(ONESEC);
     R_RTC_Start();
     R_RTC_Set_AlarmOn();
     R_TAU0_Channel0_Start();

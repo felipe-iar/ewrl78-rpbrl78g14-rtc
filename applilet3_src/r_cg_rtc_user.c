@@ -23,7 +23,7 @@
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
 * Description  : This file implements device driver for RTC module.
-* Creation Date: 2022-03-21
+* Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -32,7 +32,7 @@ Includes
 #include "r_cg_macrodriver.h"
 #include "r_cg_rtc.h"
 /* Start user code for include. Do not edit comment generated here */
-#include <stdio.h>
+#include "cspy-print.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -78,7 +78,7 @@ __interrupt static void r_rtc_interrupt(void)
 static void r_rtc_callback_constperiod(void)
 {
     /* Start user code. Do not edit comment generated here */
-    if (++seconds_rtc % 59u == 0u) {
+    if (++seconds_rtc % 60u == 0u) {
         minutes_rtc++;
         seconds_rtc = 0;
     }
@@ -99,6 +99,7 @@ static void r_rtc_callback_alarm(void)
     R_RTC_Get_AlarmValue(&myalarm);
     myalarm.alarmwm++;
     R_RTC_Set_AlarmValue(myalarm);
+    cspyPrint("ALARM: %02d:%02d:00", myalarm.alarmwh, myalarm.alarmwm);
     /* End user code. Do not edit comment generated here */
 }
 

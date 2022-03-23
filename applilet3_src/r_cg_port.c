@@ -18,11 +18,11 @@
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
-* File Name    : r_cg_cgc_user.c
+* File Name    : r_cg_port.c
 * Version      : Applilet3 for RL78/G14 V2.05.05.01 [25 Nov 2020]
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
-* Description  : This file implements device driver for CGC module.
+* Description  : This file implements device driver for PORT module.
 * Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
@@ -30,7 +30,7 @@
 Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
-#include "r_cg_cgc.h"
+#include "r_cg_port.h"
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
@@ -42,16 +42,16 @@ Global variables and functions
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
-* Function Name: R_CGC_Get_ResetSource
-* Description  : This function process of Reset.
+* Function Name: R_PORT_Create
+* Description  : This function initializes the Port I/O.
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-void R_CGC_Get_ResetSource(void)
+void R_PORT_Create(void)
 {
-    uint8_t reset_flag = RESF;
-    /* Start user code. Do not edit comment generated here */
-    /* End user code. Do not edit comment generated here */
+    P7 = _80_Pn7_OUTPUT_1;
+    PM7 = _01_PMn0_NOT_USE | _02_PMn1_NOT_USE | _04_PMn2_NOT_USE | _08_PMn3_NOT_USE | _10_PMn4_NOT_USE |
+          _20_PMn5_NOT_USE | _40_PMn6_NOT_USE | _00_PMn7_MODE_OUTPUT;
 }
 
 /* Start user code for adding. Do not edit comment generated here */

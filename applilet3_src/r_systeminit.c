@@ -23,7 +23,7 @@
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
 * Description  : This file implements system initializing function.
-* Creation Date: 2022-03-21
+* Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -31,6 +31,7 @@ Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
 #include "r_cg_cgc.h"
+#include "r_cg_port.h"
 #include "r_cg_timer.h"
 #include "r_cg_wdt.h"
 #include "r_cg_rtc.h"
@@ -61,6 +62,7 @@ void R_Systeminit(void)
     PIOR1 = 0x00U;
     R_CGC_Get_ResetSource();
     R_CGC_Create();
+    R_PORT_Create();
     R_TAU0_Create();
     R_WDT_Create();
     R_RTC_Create();

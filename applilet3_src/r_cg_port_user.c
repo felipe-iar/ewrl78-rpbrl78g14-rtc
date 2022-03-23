@@ -18,11 +18,11 @@
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
-* File Name    : r_cg_cgc_user.c
+* File Name    : r_cg_port_user.c
 * Version      : Applilet3 for RL78/G14 V2.05.05.01 [25 Nov 2020]
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
-* Description  : This file implements device driver for CGC module.
+* Description  : This file implements device driver for PORT module.
 * Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
@@ -30,7 +30,7 @@
 Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
-#include "r_cg_cgc.h"
+#include "r_cg_port.h"
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
@@ -40,19 +40,6 @@ Global variables and functions
 ***********************************************************************************************************************/
 /* Start user code for global. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
-
-/***********************************************************************************************************************
-* Function Name: R_CGC_Get_ResetSource
-* Description  : This function process of Reset.
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
-void R_CGC_Get_ResetSource(void)
-{
-    uint8_t reset_flag = RESF;
-    /* Start user code. Do not edit comment generated here */
-    /* End user code. Do not edit comment generated here */
-}
 
 /* Start user code for adding. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */

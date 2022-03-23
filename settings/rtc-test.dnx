@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <DebugChecksum>
-        <Checksum>1382526633</Checksum>
+        <Checksum>2202454189</Checksum>
     </DebugChecksum>
     <E1>
         <Map0>0,0,65535,65536</Map0>
@@ -194,6 +194,12 @@
         <GraphEnabled>0</GraphEnabled>
         <ShowTimeLog>1</ShowTimeLog>
     </DataSample>
+    <Breakpoints>
+        <Count>0</Count>
+    </Breakpoints>
+    <Monitor_Execution>
+        <Leave_target_running>0</Leave_target_running>
+    </Monitor_Execution>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -203,19 +209,12 @@
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
-    <TraceHelper>
-        <Enabled>0</Enabled>
-        <ShowSource>1</ShowSource>
-    </TraceHelper>
-    <Breakpoints>
-        <Bp0>_ "STD_LOG" "{$PROJ_DIR$\applilet3_src\r_cg_rtc_user.c}.98.5" 0 0 0 0 "" 0 "%"RTC..%", minutes_rtc:%%d, %":%", seconds_rtc:%%d, %", IT..%", minutes_it:%%d, %":%", seconds_it:%%d" 1</Bp0>
-        <Count>1</Count>
-    </Breakpoints>
-    <Monitor_Execution>
-        <Leave_target_running>0</Leave_target_running>
-    </Monitor_Execution>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
+    <TraceHelper>
+        <Enabled>0</Enabled>
+        <ShowSource>1</ShowSource>
+    </TraceHelper>
 </settings>

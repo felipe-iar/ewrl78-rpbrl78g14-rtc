@@ -23,7 +23,7 @@
 * Device(s)    : R5F104LE
 * Tool-Chain   : IAR Systems iccrl78
 * Description  : This file implements device driver for TAU module.
-* Creation Date: 2022-03-21
+* Creation Date: 2022-03-23
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -35,7 +35,7 @@ Includes
 #include "r_cg_rtc.h"
 #include "r_cg_wdt.h"
 #include <assert.h>
-#include <stdio.h>
+#include "cspy-print.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -48,13 +48,8 @@ extern unsigned int minutes_it;
 extern unsigned int seconds_rtc;
 extern unsigned int minutes_rtc;
 
-__root rtc_counter_value_t temp;
-__root int m,s;
-__root char cspyPrintBuffer[128];
-
-static inline int bcd_decimal(uint8_t);
-static void cspyPrint(void);
-static void printSEC(void);
+static inline uint8_t bcd2dec(uint8_t);
+static void printCounter(void);
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -73,31 +68,33 @@ __interrupt static void r_tau0_channel0_interrupt(void)
         seconds_it = 0;
     }
 
-    /* function to print RTC's SEC */
-    printSEC();
+    /* Prints RTC's SEC and MIN */
+    printCounter();
 
     /* End user code. Do not edit comment generated here */
 }
 
 /* Start user code for adding. Do not edit comment generated here */
 
-static inline int bcd_decimal(uint8_t hex)
+static inline uint8_t bcd2dec(uint8_t hex)
 {
     assert(((hex & 0xF0) >> 4) < 10);  // More significant nybble is valid
     assert((hex & 0x0F) < 10);         // Less significant nybble is valid
-    int dec = ((hex & 0xF0) >> 4) * 10 + (hex & 0x0F);
+    uint8_t dec = ((hex & 0xF0) >> 4) * 10 + (hex & 0x0F);
     return dec;
 }
 
-static inline void cspyPrint() {}
-
-static void printSEC()
+static void printCounter()
 {
+    rtc_counter_value_t temp;
+    uint8_t m, s;
+
     while (MD_OK != R_RTC_Get_CounterValue(&temp));
-    s = bcd_decimal(temp.sec);
-    m = bcd_decimal(temp.min);
+    s = bcd2dec(temp.sec);
+    m = bcd2dec(temp.min);
+
+    cspyPrint("Time is %02u:%02u", m, s);
+
     R_WDT_Restart(); /* Pet the dog */
-    snprintf(cspyPrintBuffer, 128, "time is: %02d:%02d", m, s);
-    cspyPrint(); // cspy-print.mac
 }
 /* End user code. Do not edit comment generated here */
