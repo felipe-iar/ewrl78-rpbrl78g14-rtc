@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\IAR_Systems\EWRL78\4.21.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
+"C:\IAR_Systems\EWRL78\4.20.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\IAR_Systems\EWRL78\4.21.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
+"C:\IAR_Systems\EWRL78\4.20.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
 
 @echo off 
 :end

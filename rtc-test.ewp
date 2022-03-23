@@ -82,11 +82,11 @@
                 </option>
                 <option>
                     <name>GenRTConfigPath</name>
-                    <state>$TOOLKIT_DIR$\lib\DLib_Config_Normal.h</state>
+                    <state>$TOOLKIT_DIR$\LIB\DLib_Config_Normal.h</state>
                 </option>
                 <option>
                     <name>GenRTLibraryPath</name>
-                    <state>$TOOLKIT_DIR$\lib\dlrlnnf23n.a</state>
+                    <state>$TOOLKIT_DIR$\LIB\dlrlnnf23n.a</state>
                 </option>
                 <option>
                     <name>GenLibInFormatterDescription</name>
@@ -653,9 +653,9 @@
         </settings>
         <settings>
             <name>ILINK</name>
-            <archiveVersion>17</archiveVersion>
+            <archiveVersion>16</archiveVersion>
             <data>
-                <version>8</version>
+                <version>7</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>1</debug>
                 <option>
@@ -738,7 +738,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\lnkr5f104le.icf</state>
+                    <state>lnk0t.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -830,7 +830,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state>__iar_program_start</state>
+                    <state></state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -984,26 +984,6 @@
                 <option>
                     <name>IlinkThreadsSlave</name>
                     <state>1</state>
-                </option>
-                <option>
-                    <name>IlinkLogCrtRoutineSelection</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkLogFragmentInfo</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkLogInlining</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkLogMerging</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkDemangle</name>
-                    <state>0</state>
                 </option>
             </data>
         </settings>
@@ -1691,9 +1671,9 @@
         </settings>
         <settings>
             <name>ILINK</name>
-            <archiveVersion>17</archiveVersion>
+            <archiveVersion>16</archiveVersion>
             <data>
-                <version>8</version>
+                <version>7</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>0</debug>
                 <option>
@@ -2021,26 +2001,6 @@
                     <name>IlinkThreadsSlave</name>
                     <state>1</state>
                 </option>
-                <option>
-                    <name>IlinkLogCrtRoutineSelection</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkLogFragmentInfo</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkLogInlining</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkLogMerging</name>
-                    <state>0</state>
-                </option>
-                <option>
-                    <name>IlinkDemangle</name>
-                    <state>0</state>
-                </option>
             </data>
         </settings>
         <settings>
@@ -2111,6 +2071,9 @@
             </file>
         </group>
     </group>
+    <file>
+        <name>$PROJ_DIR$\cspy-print.mac</name>
+    </file>
     <file>
         <name>$PROJ_DIR$\rtc-test.ipcf</name>
     </file>

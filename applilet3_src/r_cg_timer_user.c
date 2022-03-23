@@ -35,6 +35,7 @@ Includes
 #include "r_cg_rtc.h"
 #include "r_cg_wdt.h"
 #include <assert.h>
+#include <stdio.h>
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -49,7 +50,10 @@ extern unsigned int minutes_rtc;
 
 __root rtc_counter_value_t temp;
 __root int m,s;
+__root char cspyPrintBuffer[128];
 
+static inline int bcd_decimal(uint8_t);
+static void cspyPrint(void);
 static void printSEC(void);
 /* End user code. Do not edit comment generated here */
 
@@ -85,12 +89,15 @@ static inline int bcd_decimal(uint8_t hex)
     return dec;
 }
 
+static inline void cspyPrint() {}
+
 static void printSEC()
 {
     while (MD_OK != R_RTC_Get_CounterValue(&temp));
     s = bcd_decimal(temp.sec);
     m = bcd_decimal(temp.min);
     R_WDT_Restart(); /* Pet the dog */
-    __no_operation(); // Placeholder for a "log breakpoint"
+    snprintf(cspyPrintBuffer, 128, "time is: %02d:%02d", m, s);
+    cspyPrint(); // cspy-print.mac
 }
 /* End user code. Do not edit comment generated here */

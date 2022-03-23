@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\IAR_Systems\EWRL78\4.21.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
+& "C:\IAR_Systems\EWRL78\4.20.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
 }
 else
 {
-& "C:\IAR_Systems\EWRL78\4.21.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
+& "C:\IAR_Systems\EWRL78\4.20.1\common\bin\cspybat" -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Renesas\RL78\rtc-test\rtc-test\settings\rtc-test.Debug.driver.xcl" 
 }

@@ -40,11 +40,11 @@
                 </option>
                 <option>
                     <name>DebugMacOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>DebugMacFile</name>
-                    <state></state>
+                    <state>$PROJ_DIR$/cspy-print.mac</state>
                 </option>
                 <option>
                     <name>DynDriver</name>
