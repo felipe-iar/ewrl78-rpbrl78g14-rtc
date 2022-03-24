@@ -63,7 +63,7 @@ __interrupt static void r_tau0_channel0_interrupt(void)
 {
     /* Start user code. Do not edit comment generated here */
 
-    if (++seconds_it % 59u == 0u) {
+    if (++seconds_it % 60u == 0u) {
         minutes_it++;
         seconds_it = 0;
     }

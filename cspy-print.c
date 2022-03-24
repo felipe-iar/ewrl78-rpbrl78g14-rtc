@@ -24,13 +24,11 @@ char buffer[BUFFER_SIZE];
 // There is a code breakpoint for this function set in `cspy-print.mac`
 static inline void cspyPrintInvoke() {};
 
-//void cspyPrint(const char * format, ...)
-void cspyPrint(const char * format, int a, int b)
+void cspyPrint(const char * format, ...)
 {
-//    va_list args;
-//    va_start(args, format);
-//    snprintf(buffer, BUFFER_SIZE, format, args);
-    snprintf(buffer, BUFFER_SIZE, format, a, b);
-//    va_end(args);
+    va_list args;
+    va_start(args, format);
+    vsnprintf(buffer, sizeof(buffer), format, args);
+    va_end(args);
     cspyPrintInvoke();
 }

@@ -18,5 +18,4 @@
 
 #define BUFFER_SIZE 32
 
-//void cspyPrint(const char * format, ...);
-void cspyPrint(const char * format, int a, int b);
+void cspyPrint(const char * format, ...);
